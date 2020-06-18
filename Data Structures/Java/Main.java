@@ -5,9 +5,14 @@ public class Main{
           llTest();
      }
 
+     private static void stackTest()
+     {
+          Stack<Integer> s = new Stack<>();
+     }
+
      private static void llTest()
      {
-          LinkedList ll = new LinkedList();
+          LinkedList<Integer> ll = new LinkedList<>();
 
           ll.add(1);
           ll.add(2);

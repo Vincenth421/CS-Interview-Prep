@@ -1,4 +1,3 @@
-/**Linked List class that changes things in place**/
 
 public class LinkedList<E>
 {
