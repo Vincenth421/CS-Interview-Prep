@@ -1,12 +1,12 @@
 /**Linked List class that changes things in place**/
 
-public class LinkedList
+public class LinkedList<E>
 {
      private Node head;
      private int size = 0;
 
      //Append item to linked list
-     public void add(int e)
+     public void add(E e)
      {
           Node n = new Node(e);
           n.next = null;
@@ -26,7 +26,7 @@ public class LinkedList
      }
 
      //Given item e, delete the first occurence. Return true if deleted, false otherwise.
-     public boolean delete(int e)
+     public boolean delete(E e)
      {
           if(size == 0)
           {
@@ -37,7 +37,7 @@ public class LinkedList
 
           Node curr = head;
 
-          if(curr.item == e)
+          if(curr.item.equals(e))
           {
                if(size == 1) head = null;
                head = curr.next;
@@ -47,7 +47,7 @@ public class LinkedList
 
           while(curr.next != null)
           {
-               if(curr.next.item == e)
+               if(curr.next.item.equals(e))
                {
                     if(curr.next.next == null) curr.next = null;
                     else curr.next = curr.next.next;
@@ -124,10 +124,10 @@ public class LinkedList
      /**Private Node class for Linked List**/
      private class Node
      {
-          private int item;
+          private E item;
           private Node next;
 
-          public Node(int obj)
+          public Node(E obj)
           {
                item = obj;
                next = null;
