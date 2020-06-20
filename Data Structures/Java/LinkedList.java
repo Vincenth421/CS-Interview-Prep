@@ -24,13 +24,38 @@ public class LinkedList<E>
           size++;
      }
 
-     //Given item e, delete the first occurence. Return true if deleted, false otherwise.
-     public boolean delete(E e)
+     public E get(int ind)
+     {
+          Node curr = head;
+          int count = 0;
+
+          if(ind >= size)
+          {
+               System.out.println("No such index exists.");
+               return null;
+          }
+
+          while(curr != null)
+          {
+               if(count == ind)
+               {
+                    return curr.item;
+               } else {
+                    curr = curr.next;
+                    count++;
+               }
+          }
+
+          return null;
+     }
+
+     //Given item e, delete the first occurence. Returns the deleted item.
+     public E delete(E e)
      {
           if(size == 0)
           {
                System.out.println("List is empty.");
-               return false;
+               return null;
           }
 
 
@@ -41,7 +66,7 @@ public class LinkedList<E>
                if(size == 1) head = null;
                head = curr.next;
                size--;
-               return true;
+               return e;
           }
 
           while(curr.next != null)
@@ -52,18 +77,18 @@ public class LinkedList<E>
                     else curr.next = curr.next.next;
 
                     size--;
-                    return true;
+                    return e;
                }
 
                curr = curr.next;
           }
 
           System.out.println("Element not found.");
-          return false;
+          return null;
      }
 
      //Given index ind, delete item at that index.
-     public boolean deletePosition(int ind)
+     public E deletePosition(int ind)
      {
           Node curr = head;
           Node prev = null;
@@ -71,14 +96,14 @@ public class LinkedList<E>
           if(ind >= size)
           {
                System.out.println("No such index exists.");
-               return false;
+               return null;
           }
 
           if(ind == 0)
           {
                head = curr.next;
                size--;
-               return true;
+               return curr.item;
           }
 
           int count = 0;
@@ -89,7 +114,7 @@ public class LinkedList<E>
                {
                     prev.next = curr.next;
                     size--;
-                    return true;
+                    return curr.item;
                } else {
                     prev = curr;
                     curr = curr.next;
@@ -97,7 +122,7 @@ public class LinkedList<E>
                }
           }
 
-          return false;
+          return null;
      }
 
      //Print the linked list.
@@ -117,6 +142,11 @@ public class LinkedList<E>
           }
 
           System.out.println(curr.item);
+     }
+
+     public int size()
+     {
+          return size;
      }
 
 

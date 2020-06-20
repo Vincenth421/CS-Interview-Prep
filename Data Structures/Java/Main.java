@@ -3,7 +3,30 @@ public class Main{
      public static void main(String[] args)
      {
           //llTest();
-          stackTest();
+          //stackTest();
+          queueTest();
+     }
+
+     private static void queueTest()
+     {
+          Queue<Integer> q = new Queue<>();
+
+          q.enqueue(1);
+          q.enqueue(2);
+          q.enqueue(3);
+          q.enqueue(4);
+          q.enqueue(5);
+
+          q.printQueue();
+
+          System.out.println(q.peek());
+
+          q.dequeue();
+
+          System.out.println(q.dequeue());
+
+          q.printQueue();
+
      }
 
      private static void stackTest()
@@ -49,6 +72,8 @@ public class Main{
           ll.add(5);
 
           ll.printList();
+
+          System.out.println(ll.get(0));
 
           ll.delete(1);
           ll.delete(5);

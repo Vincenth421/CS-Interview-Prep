@@ -6,7 +6,8 @@ JC = javac
 
 CLASSES = \
 	LinkedList.java \
-	Stack.java
+	Stack.java \
+	Queue.java
 
 default: run
 
