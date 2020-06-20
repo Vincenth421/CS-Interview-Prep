@@ -2,12 +2,39 @@ public class Main{
 
      public static void main(String[] args)
      {
-          llTest();
+          //llTest();
+          stackTest();
      }
 
      private static void stackTest()
      {
           Stack<Integer> s = new Stack<>();
+
+          s.push(1);
+          s.push(2);
+          s.push(3);
+
+          s.printStack();
+
+          System.out.println(s.peek());
+
+          s.pop();
+
+          System.out.println(s.pop());
+          s.printStack();
+
+          s.pop();
+
+          s.printStack();
+
+          s.push(1);
+          s.push(2);
+          s.push(3);
+          s.push(1);
+          s.push(2);
+          s.push(3);
+
+          s.printStack();
      }
 
      private static void llTest()
