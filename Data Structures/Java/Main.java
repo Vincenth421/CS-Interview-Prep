@@ -5,6 +5,23 @@ public class Main{
           llTest();
           //stackTest();
           //queueTest();
+          BSTTest();
+     }
+
+     private static void BSTTest()
+     {
+          BST bst = new BST();
+
+          bst.add(7);
+          bst.add(8);
+          bst.add(9);
+          bst.add(3);
+          bst.add(0);
+          bst.add(2);
+
+          bst.printTree(bst.getRoot());
+
+          System.out.println("*** BST TESTS PASSED ***");
      }
 
      private static void queueTest()
@@ -97,7 +114,7 @@ public class Main{
 
           ll.printList();
 
-          System.out.println("*** LL TESTS PASSED. ***");
+          System.out.println("*** LL TESTS PASSED ***");
 
      }
 

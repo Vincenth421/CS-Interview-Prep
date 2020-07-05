@@ -1,7 +1,13 @@
 public class LinkedList
 {
      private Node head;
-     private int size = 0;
+     private int size;
+
+     public LinkedList()
+     {
+          head = null;
+          size = 0;
+     }
 
      //Append item to linked list
      public void add(int item)

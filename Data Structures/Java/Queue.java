@@ -6,7 +6,7 @@ public class Queue{
 
      public Queue()
      {
-          queue = new LinkedList<>();
+          queue = new LinkedList();
      }
 
      public void enqueue(int i)
