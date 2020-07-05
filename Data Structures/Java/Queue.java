@@ -1,6 +1,6 @@
 /**Using my linked list implementation to make a queue**/
-public class Queue<E>{
-     private LinkedList<E> queue;
+public class Queue{
+     private LinkedList queue;
      private int dequeue = 0;
      private int enqueue = 0;
 
@@ -9,16 +9,16 @@ public class Queue<E>{
           queue = new LinkedList<>();
      }
 
-     public void enqueue(E e)
+     public void enqueue(int i)
      {
-          queue.add(e);
+          queue.add(i);
      }
 
-     public E dequeue(){
+     public int dequeue(){
           return queue.deletePosition(0);
      }
 
-     public E peek()
+     public int peek()
      {
           return queue.get(0);
      }

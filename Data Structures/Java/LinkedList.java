@@ -1,102 +1,109 @@
-
 public class LinkedList<E>
 {
      private Node head;
      private int size = 0;
 
      //Append item to linked list
-     public void add(E e)
+     public void add(int item)
      {
-          Node n = new Node(e);
-          n.next = null;
 
+          Node n = new Node(item);
+
+          //if linked list is empty, make initialize the head
           if(size == 0) head = n;
           else
           {
                Node curr = head;
+
+               //iterate until last node
                while(curr.next != null)
                {
                     curr = curr.next;
                }
+
+               //set the next of the last node to new node
                curr.next = n;
           }
 
           size++;
      }
 
-     public E get(int ind)
+     //get the item at the index ind
+     public int get(int ind)
      {
           Node curr = head;
           int count = 0;
+          int item = 0;
 
-          if(ind >= size)
+          //exit if index is out of bounds
+          if(ind >= size || ind < 0)
           {
                System.out.println("No such index exists.");
-               return null;
+               return item;
           }
 
+          //iterate through whole list
           while(curr != null)
           {
+               //end loop when we hit the index
                if(count == ind)
                {
-                    return curr.item;
+                    item = curr.item;
+                    break;
                } else {
                     curr = curr.next;
                     count++;
                }
           }
 
-          return null;
+          return item;
      }
 
-     //Given item e, delete the first occurence. Returns the deleted item.
-     public E delete(E e)
+     //Given item e, delete the first occurence
+     public void delete(int item)
      {
           if(size == 0)
           {
                System.out.println("List is empty.");
-               return null;
+               return;
           }
-
 
           Node curr = head;
+          Node prev = null;
 
-          if(curr.item.equals(e))
+          if(curr.item == item)
           {
-               if(size == 1) head = null;
                head = curr.next;
                size--;
-               return e;
+               return;
           }
 
-          while(curr.next != null)
+          while(curr != null)
           {
-               if(curr.next.item.equals(e))
+               if(curr.item == item)
                {
-                    if(curr.next.next == null) curr.next = null;
-                    else curr.next = curr.next.next;
-
+                    prev.next = curr.next;
                     size--;
-                    return e;
+                    return;
                }
-
+               prev = curr;
                curr = curr.next;
           }
 
           System.out.println("Element not found.");
-          return null;
      }
 
-     //Given index ind, delete item at that index.
-     public E deletePosition(int ind)
+     //Given index ind, delete item at that index. Return deleted item.
+     public int deletePosition(int ind)
      {
           Node curr = head;
           Node prev = null;
+          int item = 0;
 
           if(ind >= size)
           {
                System.out.println("No such index exists.");
-               return null;
+               return item;
           }
 
           if(ind == 0)
@@ -114,7 +121,8 @@ public class LinkedList<E>
                {
                     prev.next = curr.next;
                     size--;
-                    return curr.item;
+                    item = curr.item;
+                    break;
                } else {
                     prev = curr;
                     curr = curr.next;
@@ -122,7 +130,7 @@ public class LinkedList<E>
                }
           }
 
-          return null;
+          return item;
      }
 
      //Print the linked list.
@@ -149,17 +157,22 @@ public class LinkedList<E>
           return size;
      }
 
-
      /**Private Node class for Linked List**/
      private class Node
      {
-          private E item;
+          private int item;
           private Node next;
 
-          public Node(E obj)
+          public Node(int item)
           {
-               item = obj;
+               this.item = item;
                next = null;
+          }
+
+          public Node(int item, Node next)
+          {
+               this.item = item;
+               this.next = next;
           }
      }
 }

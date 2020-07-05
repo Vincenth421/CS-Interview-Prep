@@ -2,14 +2,14 @@ public class Main{
 
      public static void main(String[] args)
      {
-          //llTest();
+          llTest();
           //stackTest();
-          queueTest();
+          //queueTest();
      }
 
      private static void queueTest()
      {
-          Queue<Integer> q = new Queue<>();
+          Queue q = new Queue();
 
           q.enqueue(1);
           q.enqueue(2);
@@ -31,7 +31,7 @@ public class Main{
 
      private static void stackTest()
      {
-          Stack<Integer> s = new Stack<>();
+          Stack s = new Stack();
 
           s.push(1);
           s.push(2);
@@ -64,46 +64,41 @@ public class Main{
      {
           LinkedList<Integer> ll = new LinkedList<>();
 
+          //Test deletes on empty list
+          ll.delete(1);
+          if(ll.deletePosition(0) != 0) {System.out.println("LL deletePosition() failed."); return;}
+          if(ll.size() != 0) {System.out.println("LL size() failed."); return;}
+
+          //Test get on empty List
+          if(ll.get(0) != 0) {System.out.println("LL empty get() failed."); return;}
+          if(ll.get(1) != 0) {System.out.println("LL empty get() failed."); return;}
+
+          //Test adding
+          ll.add(0);
           ll.add(1);
           ll.add(2);
           ll.add(3);
-          ll.add(3);
-          ll.add(4);
-          ll.add(5);
-
           ll.printList();
+          if(ll.size() != 4) {System.out.println("LL size() fail."); return;}
 
-          System.out.println(ll.get(0));
+          //Test get
+          if(ll.get(1) != 1) {System.out.println("LL get() fail."); return;}
+          if(ll.get(0) != 0) {System.out.println("LL get() fail."); return;}
+          if(ll.get(3) != 3) {System.out.println("LL get() fail."); return;}
+          if(ll.get(4) != 0) {System.out.println("LL get() fail."); return;}
+          if(ll.get(-1) != 0) {System.out.println("LL get() fail."); return;}
 
-          ll.delete(1);
-          ll.delete(5);
+          //Test deletes
+          ll.delete(4); //no element exists
           ll.delete(3);
-          ll.delete(4);
-          ll.delete(1);
-
-          ll.printList();
-
-          ll.deletePosition(3);
-          ll.deletePosition(0);
-
-          ll.printList();
-
-          ll.add(1);
-          ll.add(2);
-          ll.add(3);
-          ll.add(4);
-          ll.add(5);
+          ll.delete(0);
 
           ll.deletePosition(0);
 
           ll.printList();
 
-          ll.deletePosition(5);
-          ll.deletePosition(4);
-          ll.deletePosition(1);
-          ll.deletePosition(2);
+          System.out.println("*** LL TESTS PASSED. ***");
 
-          ll.printList();
      }
 
 }
