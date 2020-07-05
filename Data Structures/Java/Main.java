@@ -62,7 +62,7 @@ public class Main{
 
      private static void llTest()
      {
-          LinkedList<Integer> ll = new LinkedList<>();
+          LinkedList ll = new LinkedList();
 
           //Test deletes on empty list
           ll.delete(1);
