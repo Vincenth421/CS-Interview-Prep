@@ -65,13 +65,13 @@ public class LinkedList
           return item;
      }
 
-     //Given item e, delete the first occurence
-     public void delete(int item)
+     //Given item e, delete the first occurence. True if deleted, false otherwise;
+     public boolean delete(int item)
      {
           if(size == 0)
           {
                System.out.println("List is empty.");
-               return;
+               return false;
           }
 
           Node curr = head;
@@ -81,7 +81,7 @@ public class LinkedList
           {
                head = curr.next;
                size--;
-               return;
+               return true;
           }
 
           while(curr != null)
@@ -90,13 +90,14 @@ public class LinkedList
                {
                     prev.next = curr.next;
                     size--;
-                    return;
+                    return true;
                }
                prev = curr;
                curr = curr.next;
           }
 
           System.out.println("Element not found.");
+          return false;
      }
 
      //Given index ind, delete item at that index. Return deleted item.

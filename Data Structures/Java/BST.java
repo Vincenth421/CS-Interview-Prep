@@ -11,8 +11,9 @@ public class BST{
           root = addHelp(root, item);
      }
 
-     public Node addHelp(Node root, int item)
+     private Node addHelp(Node root, int item)
      {
+          //if root is null, set to a new node with item
           if(root == null)
           {
                root = new Node(item);
@@ -22,23 +23,30 @@ public class BST{
                root.right = addHelp(root.right, item);
           }
 
+          //return finished tree
           return root;
      }
 
-     public void printTree(Node root)
+     public boolean contains(int item)
      {
-          if(root == null) return;
-
-          System.out.println(root.item + " ");
-          printTree(root.left);
-          printTree(root.right);
-
+          return containsHelp(item, root);
      }
 
-     public Node getRoot()
+     private boolean containsHelp(int item, Node node)
      {
-          return root;
+          if(node == null)
+          {
+               return false;
+          } else if(node.item == item) {
+               return true;
+          } else if(item < node.item) {
+               return containsHelp(item, node.left);
+          } else {
+               return containsHelp(item, node.right);
+          }
      }
+
+
 
      private class Node{
           int item;
