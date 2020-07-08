@@ -65,7 +65,7 @@ public class LinkedList
           return item;
      }
 
-     //Given item e, delete the first occurence. True if deleted, false otherwise;
+     //Given item e, delete the first occurence. True if deleted, false otherwise.
      public boolean delete(int item)
      {
           if(size == 0)

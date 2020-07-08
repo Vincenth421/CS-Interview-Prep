@@ -11,24 +11,45 @@ public class Main{
      {
           BST bst = new BST();
 
-          bst.add(7);
+          bst.add(5);
           bst.add(8);
-          bst.add(9);
+          bst.add(6);
           bst.add(3);
           bst.add(0);
           bst.add(2);
+          bst.add(9);
+          bst.add(-2);
 
-          if(!bst.contains(7))
+          //contains test
+          if(bst.contains(-1))
           {
-               System.out.println("BST contains failed");
+               System.out.println("BST contains() failed");
                return;
           }
 
           if(!bst.contains(3))
           {
-               System.out.println("BST contains failed");
+               System.out.println("BST contains() failed");
                return;
           }
+
+          bst.delete(5);
+
+          if(bst.contains(5))
+          {
+               System.out.println("BST delete() failed");
+               return;
+          }
+
+          bst.delete(8);
+
+          if(!bst.contains(9))
+          {
+               System.out.println("BST delete() failed");
+               return;
+          }
+
+          bst.delete(-2);
 
           System.out.println("*** BST TESTS PASSED ***");
      }
@@ -43,7 +64,7 @@ public class Main{
 
           if(s.peek() != 3)
           {
-               System.out.println("Stack peek fail");
+               System.out.println("Stack peek() fail");
                return;
           }
 
@@ -51,7 +72,7 @@ public class Main{
 
           if(s.pop() != 2)
           {
-               System.out.println("Stack pop fail");
+               System.out.println("Stack pop() fail");
           }
 
           s.pop();

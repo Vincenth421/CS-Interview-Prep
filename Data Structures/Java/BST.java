@@ -32,21 +32,61 @@ public class BST{
           return containsHelp(item, root);
      }
 
-     private boolean containsHelp(int item, Node node)
+     private boolean containsHelp(int item, Node root)
      {
-          if(node == null)
+          if(root == null)
           {
                return false;
-          } else if(node.item == item) {
+          } else if(root.item == item) {
                return true;
-          } else if(item < node.item) {
-               return containsHelp(item, node.left);
+          } else if(item < root.item) {
+               return containsHelp(item, root.left);
           } else {
-               return containsHelp(item, node.right);
+               return containsHelp(item, root.right);
           }
      }
 
+     //Delete an item from the tree. True if deleted, false if item does not exist.
+     public void delete(int item)
+     {
+          root = deleteHelp(item, root);
+     }
 
+     public Node deleteHelp(int item, Node root)
+     {
+          if(root == null) return root;
+
+          if(item < root.item)
+          {
+               root.left = deleteHelp(item, root.left);
+          } else if(item > root.item) {
+               root.right = deleteHelp(item, root.right);
+          } else {
+               if(root.right == null)
+               {
+                    return root.left;
+               } else if(root.left == null) {
+                    return root.right;
+               } else {
+                    root.item = min(root.right);
+                    deleteHelp(root.item, root.right);
+               }
+          }
+
+          return root;
+     }
+
+     private int min(Node root)
+     {
+          if(root.left == null)
+          {
+               return root.item;
+          } else if(root.left.left == null) {
+               return root.left.item ;
+          } else {
+               return min(root.left);
+          }
+     }
 
      private class Node{
           int item;
