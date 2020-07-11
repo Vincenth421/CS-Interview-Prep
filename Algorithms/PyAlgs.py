@@ -1,3 +1,5 @@
+import random
+
 #Sorting algorithms
 
 #Classic mergesort - DONE
@@ -48,5 +50,64 @@ def mergesort(arr):
     #merge now sorted a and b, return result
     return merge(a, b)
 
-#Quicksort
-def quicksort(arr):
+#Quicksort - DONE
+def quicksort(arr, low, high):
+
+    #helper method using Lomuto Partitioning
+    def partition(arr, low, high):
+        #Pivot is always the last item
+        pivot = arr[high]
+
+        #start tracker at low index
+        j = low
+
+        #only partition for set boundaries
+        for i in range(low, high):
+
+            #if current item is less than pivot, put on left side
+            if arr[i] < pivot:
+                temp = arr[j]
+                arr[j] = arr[i]
+                arr[i] = temp
+
+                j = j + 1
+
+        #swap pivot to the middle
+        arr[high] = arr[j]
+        arr[j] = pivot
+
+        #return the new pivot index
+        return j
+
+    #if partition needs to be done, partition
+    if low < high:
+        part = partition(arr, low, high)
+
+        quicksort(arr, low, part - 1)
+        quicksort(arr, part + 1, high)
+
+    return arr
+
+#Quickselect: efficiently get the kth smallest elt. in unsorted array.
+#Useful for better quicksort
+def quickselect(arr, k):
+    sl = []
+    sv = []
+    sr = []
+
+    v = random.choice(arr)
+
+    for x in arr:
+        if x < v:
+            sl.append(x)
+        elif x == v:
+            sv.append(x)
+        else:
+            sr.append(x)
+
+    if k <= len(sl):
+        return quickselect(sl, k)
+    elif len(sl) < k and k <= len(sv) + len(sl):
+        return v
+    elif k > len(sl) + len(sv):
+        return quickselect(sr, k - len(sl) - len(sv))
