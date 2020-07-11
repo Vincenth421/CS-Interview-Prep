@@ -21,7 +21,7 @@ Current Algorithms Implemented:
   * Quicksort
   
 Planned algorithm implementations:
-* Common graph algorithms, like BFS, DFS, Dijkstra's, TSP, MST, Ford-Fulkerson, etc.
-* Common DP problems, like Knapsack and Longest Increasing Subsequence.
+* Common graph algorithms: BFS, DFS, Dijkstra's, TSP, MST, Ford-Fulkerson, etc.
+* Common DP problems: Knapsack and Longest Increasing Subsequence.
 
 I use reference material from the book *Algorithms* by S. Dasgupta, C.H. Papadimitriou, and U.V. Vazirani; and GeeksforGeeks.org.
