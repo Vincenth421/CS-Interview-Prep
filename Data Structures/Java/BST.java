@@ -46,7 +46,7 @@ public class BST{
           }
      }
 
-     //Delete an item from the tree. True if deleted, false if item does not exist.
+     //Delete an item from the tree.
      public void delete(int item)
      {
           root = deleteHelp(item, root);

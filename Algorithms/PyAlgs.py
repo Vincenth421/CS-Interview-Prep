@@ -91,12 +91,14 @@ def quicksort(arr, low, high):
 #Quickselect: efficiently get the kth smallest elt. in unsorted array.
 #Useful for better quicksort
 def quickselect(arr, k):
+    #less, equal to, and greater than arrays
     sl = []
     sv = []
     sr = []
 
     v = random.choice(arr)
 
+    #add elements into their respective arrays
     for x in arr:
         if x < v:
             sl.append(x)
@@ -105,9 +107,16 @@ def quickselect(arr, k):
         else:
             sr.append(x)
 
+    #if kth smallest is still in sl, recurse on sl
     if k <= len(sl):
         return quickselect(sl, k)
+
+    #if kth smallest is greater than sl but within sv and sl, return v
     elif len(sl) < k and k <= len(sv) + len(sl):
         return v
+
+    #if kth smallest is in greater than array, recurse on sr, modifying k
     elif k > len(sl) + len(sv):
         return quickselect(sr, k - len(sl) - len(sv))
+
+#Graph algorithms
