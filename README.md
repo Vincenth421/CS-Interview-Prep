@@ -23,5 +23,6 @@ Current Algorithms Implemented:
 Planned algorithm implementations:
 * Common graph algorithms: BFS, DFS, Dijkstra's, TSP, MST, Ford-Fulkerson, etc.
 * Common DP problems: Knapsack and Longest Increasing Subsequence.
+* Other common harder Leetcode interview questions.
 
-I use reference material from the book *Algorithms* by S. Dasgupta, C.H. Papadimitriou, and U.V. Vazirani; and GeeksforGeeks.org.
+I use reference material from the book *Algorithms* by S. Dasgupta, C.H. Papadimitriou, and U.V. Vazirani; GeeksforGeeks.org; *Cracking the Coding Interview* by Gayle Laakmann McDowell; and Leetcode.com
