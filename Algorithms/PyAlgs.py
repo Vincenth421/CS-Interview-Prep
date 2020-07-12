@@ -1,4 +1,5 @@
 import random
+import asyncio
 
 #Sorting algorithms
 
@@ -120,3 +121,35 @@ def quickselect(arr, k):
         return quickselect(sr, k - len(sl) - len(sv))
 
 #Graph algorithms
+
+#BFS uses asyncio library for queue. Graph input is an nxn matrix, where n is the number of nodes. -DONE
+def BFS(G, s):
+    #queue for bfs
+    queue = asyncio.Queue()
+
+    #checking if vertices are visited, could be improved for speed
+    visited = []
+
+    #put source node in queue and visited
+    queue.put_nowait(s)
+    visited.append(s)
+
+    #keep visiting unvisited vertices
+    while not queue.empty():
+
+        #dequeue next node
+        v = queue.get_nowait()
+
+        #put whatever functions here
+        print(v)
+
+        #view neighbors
+        for i in range(len(G[v])):
+
+            #if there is an edge to vertex and not visited
+            if G[v][i] == 1 and i not in visited:
+                #queue vertex and visit
+                queue.put_nowait(i)
+                visited.append(i)
+
+BFS([[0, 0, 0, 1], [0, 0, 0, 0], [1, 1, 0, 0], [0, 0, 0, 0]], 2)
