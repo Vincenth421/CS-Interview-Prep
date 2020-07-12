@@ -151,5 +151,3 @@ def BFS(G, s):
                 #queue vertex and visit
                 queue.put_nowait(i)
                 visited.append(i)
-
-BFS([[0, 0, 0, 1], [0, 0, 0, 0], [1, 1, 0, 0], [0, 0, 0, 0]], 2)
