@@ -6,6 +6,9 @@ import asyncio
 #Classic mergesort - DONE
 def mergesort(arr):
 
+    if len(arr) == 0:
+        return
+
     #merge helper function
     def merge(a, b):
         #variables to keep track of where in a and b we are
@@ -54,6 +57,9 @@ def mergesort(arr):
 #Quicksort - DONE
 def quicksort(arr, low, high):
 
+    if len(arr) == 0:
+        return
+
     #helper method using Lomuto Partitioning
     def partition(arr, low, high):
         #Pivot is always the last item
@@ -93,6 +99,9 @@ def quicksort(arr, low, high):
 #Useful for better quicksort
 def quickselect(arr, k):
     #less, equal to, and greater than arrays
+    if len(arr) == 0:
+        return
+
     sl = []
     sv = []
     sr = []
@@ -124,6 +133,10 @@ def quickselect(arr, k):
 
 #BFS uses asyncio library for queue. Graph input is an nxn matrix, where n is the number of nodes. -DONE
 def BFS(G, s):
+
+    if len(G) == 0:
+        return
+
     #queue for bfs
     queue = asyncio.Queue()
 
@@ -151,3 +164,28 @@ def BFS(G, s):
                 #queue vertex and visit
                 queue.put_nowait(i)
                 visited.append(i)
+
+#Standard DFS. The explore function recursively does DFS on the graph. - DONE
+def DFS(G, s):
+
+    #explore helper function
+    def explore(G, s, visited):
+        visited.append(s)
+
+        #previsit function
+        print(s)
+
+        #for every neighbor of s, explore them if they are unvisited
+        for vert in range(len(G[s])):
+            if G[s][vert] == 1 and vert not in visited:
+                explore(G, vert, visited)
+
+        #postvisit function here
+
+    if len(G) == 0:
+        return
+
+    visited = []
+
+    #start explore from source
+    explore(G, s, visited)
