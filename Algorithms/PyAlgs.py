@@ -1,7 +1,4 @@
-import random
-import asyncio
-
-#Sorting algorithms
+###Sorting algorithms
 
 #Classic mergesort - DONE
 def mergesort(arr):
@@ -129,29 +126,30 @@ def quickselect(arr, k):
     elif k > len(sl) + len(sv):
         return quickselect(sr, k - len(sl) - len(sv))
 
-#Graph algorithms
+###Graph algorithms
+#All graphs here are assumed to be represented in an nxn matrix form, where n is the number of vertices.
 
-#BFS uses asyncio library for queue. Graph input is an nxn matrix, where n is the number of nodes. -DONE
+#Standard BFS
 def BFS(G, s):
 
     if len(G) == 0:
         return
 
     #queue for bfs
-    queue = asyncio.Queue()
+    queue = []
 
-    #checking if vertices are visited, could be improved for speed
-    visited = []
+    #checking if vertices are visited
+    visited = [False] * len(G[0])
 
     #put source node in queue and visited
-    queue.put_nowait(s)
-    visited.append(s)
+    queue.append(s)
+    visited[s] = True
 
     #keep visiting unvisited vertices
-    while not queue.empty():
+    while not len(queue) == 0:
 
         #dequeue next node
-        v = queue.get_nowait()
+        v = queue.pop(0)
 
         #put whatever functions here
         print(v)
@@ -160,24 +158,24 @@ def BFS(G, s):
         for i in range(len(G[v])):
 
             #if there is an edge to vertex and not visited
-            if G[v][i] == 1 and i not in visited:
+            if G[v][i] == 1 and not visited[i]:
                 #queue vertex and visit
-                queue.put_nowait(i)
-                visited.append(i)
+                queue.append(i)
+                visited[i] = True
 
 #Standard DFS. The explore function recursively does DFS on the graph. - DONE
-def DFS(G, s):
+def DFS(G):
 
     #explore helper function
     def explore(G, s, visited):
-        visited.append(s)
+        visited[s] = True
 
         #previsit function
         print(s)
 
         #for every neighbor of s, explore them if they are unvisited
         for vert in range(len(G[s])):
-            if G[s][vert] == 1 and vert not in visited:
+            if G[s][vert] == 1 and not visited[vert]:
                 explore(G, vert, visited)
 
         #postvisit function here
@@ -185,7 +183,12 @@ def DFS(G, s):
     if len(G) == 0:
         return
 
-    visited = []
+    visited = [False] * len(G)
 
-    #start explore from source
-    explore(G, s, visited)
+    for vert in range(len(G[0])):
+        if not visited[vert]:
+            explore(G, vert, visited)
+
+#Strongly connected components function. Assumes graph is directed and connected.
+def SCC(G):
+    pass
