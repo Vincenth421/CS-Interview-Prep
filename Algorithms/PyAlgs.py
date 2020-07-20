@@ -157,7 +157,7 @@ def BFS(G, s):
         #view neighbors
         for i in range(len(G[v])):
 
-            #if there is an edge to vertex and not visited
+            #for every unvisited neighbor, add to queue and visit them.
             if G[v][i] == 1 and not visited[i]:
                 #queue vertex and visit
                 queue.append(i)
@@ -189,6 +189,64 @@ def DFS(G):
         if not visited[vert]:
             explore(G, vert, visited)
 
-#Strongly connected components function. Assumes graph is directed and connected.
+#Strongly connected components function. Returns a list of lists, where each SCC is a list of vertices in the SCC. - DONE
 def SCC(G):
-    pass
+
+    #reuse DFS explore function, but add stack and a connected components list. Both are None by default, we only add to them if needed.
+    def explore(G, s, visited, stk=None, cc=None):
+        #mark s as visited and append to stack
+        visited[s] = True
+
+        #if we pass in cc and call this function, we know that s is in the cc.
+        if cc != None:
+            cc.append(s)
+
+        #previsit function
+
+        #for every neighbor of s, explore them if they are unvisited
+        for vert in range(len(G[s])):
+            if G[s][vert] == 1 and not visited[vert]:
+                explore(G, vert, visited, stk, cc)
+
+        #postvisit function
+
+        #when we are done exploring the neighbors, add s to the stack.
+        if stk != None:
+            stk.append(s)
+
+    #initialize scc list.
+    sccs = []
+
+    #if graph is empty, return empty list
+    if len(G) == 0:
+        return sccs
+
+    #init stack and visited list
+    stack = []
+    visited = [False] * len(G)
+
+    #run DFS with new explore function
+    for vert in range(len(G[0])):
+        if not visited[vert]:
+            explore(G, vert, visited, stk=stack)
+
+    #reverse the graph
+    G_reverse = [[G[j][i] for j in range(len(G))] for i in range(len(G[0]))]
+
+    #reset the visited array
+    visited = [False] * len(G)
+
+    #iterate through the entire stack
+    while not len(stack) == 0:
+        #get the next vertex
+        v = stack.pop()
+
+        #if we haven't visited the vertex, create a new temp list to store the SCC vertices, explore the vertex, and append the SCC vertices to the overall list.
+        if not visited[v]:
+            temp = []
+            explore(G_reverse, v, visited, cc=temp)
+            sccs.append(temp)
+
+    return sccs
+
+print(SCC([[0, 0, 1, 1, 0], [1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 0, 0, 1], [0, 0, 0, 0, 0]]))
