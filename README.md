@@ -10,9 +10,9 @@ Current Data Structures Implemented:
   * Queue
   * Stack
 * Python:
-  * Linked List
+  * (Partial) Linked List
 * C:
-  * Linked List
+  * (Partial) Linked List
   
 Current Algorithms Implemented:
 * Python:
