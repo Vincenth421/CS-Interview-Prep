@@ -8,7 +8,8 @@ CLASSES = \
 	LinkedList.java \
 	Stack.java \
 	Queue.java \
-	BST.java
+	BST.java \
+	MaxHeap.java
 
 default: run
 

@@ -5,6 +5,47 @@ public class Main{
           llTest();
           stackTest();
           BSTTest();
+          heapTest();
+     }
+
+     private static void heapTest()
+     {
+          MaxHeap mh = new MaxHeap();
+
+          mh.insert(2);
+
+          if(mh.getMax() != 2)
+          {
+               System.out.println("Heap getMax() fail");
+               return;
+          }
+
+          mh.insert(8);
+
+          if(mh.getMax() != 8)
+          {
+               System.out.println("Heap getMax() fail");
+               return;
+          }
+
+          mh.changeKey(1, 9);
+
+          if(mh.getMax() != 9)
+          {
+               System.out.println("Heap changeKey() fail");
+               return;
+          }
+
+          mh.insert(6);
+          mh.deleteMax();
+
+          if(mh.getMax() != 8)
+          {
+               System.out.println("Heap deleteMax() fail");
+               return;
+          }
+
+          System.out.println("*** MAXHEAP TESTS PASSED ***");
      }
 
      private static void BSTTest()
