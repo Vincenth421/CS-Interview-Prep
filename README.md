@@ -21,7 +21,7 @@ Current Algorithms Implemented:
   * Quicksort
   
 Planned algorithm implementations:
-* Common graph algorithms: BFS, DFS, Dijkstra's, TSP, MST, Ford-Fulkerson, etc.
+* Common graph algorithms: Dijkstra's, TSP, MST, Ford-Fulkerson, etc.
 * Common DP problems: Knapsack and Longest Increasing Subsequence.
 * Other common harder Leetcode interview questions.
 
