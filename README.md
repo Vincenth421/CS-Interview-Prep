@@ -19,6 +19,9 @@ Current Algorithms Implemented:
   * Mergesort
   * Quickselect
   * Quicksort
+  * BFS
+  * DFS
+  * Kosaraju's Strongly Connected Components
   
 Planned algorithm implementations:
 * Common graph algorithms: Dijkstra's, TSP, MST, Ford-Fulkerson, etc.
