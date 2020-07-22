@@ -249,4 +249,49 @@ def SCC(G):
 
     return sccs
 
-def maxFlow(G, s, t):
+#Graph G is an nxn matrix, where G[i][j] indicates the length of an edge between i and j. A value of 0 means there is no edge. - DONE
+def Dijkstras(G, s):
+    if len(G) == 0:
+        return []
+
+    #initialize lists to use
+    queue = []
+    dist = []
+
+    #initialize each distance to a large value
+    for vertex in range(len(G)):
+        queue.append(vertex)
+        dist.append(10000000000)
+
+    #set source vertex distance to 0
+    dist[s] = 0
+
+    #iterate until queue is empty
+    while len(queue) != 0:
+        #initialize the minimum distance to the max distance + 1
+        min_dist = max(dist) + 1
+        min_vertex = 0
+
+        #for every vertex that is in the queue, find the smallest one
+        for vert in queue:
+            if dist[vert] < min_dist:
+                min_dist = dist[vert]
+                min_vertex = vert
+
+        #remove it from the queue
+        queue.remove(min_vertex)
+
+        #for each neighbor of min_vertex, calculate new distances
+        for vert in range(len(G[vertex])):
+
+            #only calculate if there is an edge
+            if G[min_vertex][vert] > 0:
+
+                #distance of edge from min_vertex to a neighbor
+                vv_dist = G[min_vertex][vert]
+
+                #if the distance to min_vertex + the edge to neighbor is smaller than the current distance to the neighbor, update distance to the neighbor.
+                if dist[min_vertex] + vv_dist < dist[vert]:
+                    dist[vert] = dist[min_vertex] + vv_dist
+
+    return dist
