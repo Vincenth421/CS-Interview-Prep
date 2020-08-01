@@ -186,24 +186,16 @@ class JavaAlgs{
     }
 
     //iterative
-    public ListNode reverseListIter(ListNode head) {
-        if(head == null) return null;
-
-        ListNode prev = null;
-        ListNode curr = head;
-        ListNode next = null;
-
-        while(curr.next != null)
-        {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-
-        curr.next = prev;
-
-        return curr;
+    public ListNode reverse(ListNode head)
+    {
+         ListNode prev = null;
+         while (head != null) {
+              ListNode next = head.next;
+              head.next = prev;
+              prev = head;
+              head = next;
+         }
+         return prev;
     }
 
 
