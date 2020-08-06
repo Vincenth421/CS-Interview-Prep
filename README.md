@@ -9,6 +9,8 @@ Current Data Structures Implemented:
   * Binary Search Tree
   * Queue
   * Stack
+  * Trie
+  * Max Heap
 * Python:
   * (Partial) Linked List
 * C:
@@ -22,6 +24,9 @@ Current Algorithms Implemented:
   * BFS
   * DFS
   * Kosaraju's Strongly Connected Components
+  * Dijkstras
+* Java:
+  * Some Leetcode problems I found were difficult or essential to know
 
 Planned algorithm implementations:
 * Common graph algorithms: TSP, MST, Ford-Fulkerson, etc.
