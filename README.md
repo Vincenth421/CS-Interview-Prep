@@ -3,6 +3,8 @@ A repo-in-progress, helps provide a basic and simple review of common data struc
 
 I have plans to implement everything using C, Java, and Python. Includes Makefiles to help compile and run code. I am also looking to put my code up on a website for easier access and a better way to review the material.
 
+If you are interesting in helping with this project, feel free to implement some of the unfinished data structures or algorithms and submit a pull request!
+
 Current Data Structures Implemented:  
 * Java:
   * Linked List
@@ -12,9 +14,9 @@ Current Data Structures Implemented:
   * Trie
   * Max Heap
 * Python:
-  * (Partial) Linked List
+  * (In progress) Linked List
 * C:
-  * (Partial) Linked List
+  * (In progress) Linked List
 
 Current Algorithms Implemented:
 * Python:
