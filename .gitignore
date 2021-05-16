@@ -1,5 +1,5 @@
 C/out
-C/Main.exe
+C/*.exe
 Java/out
 Java/*.class
 Python/__pycache__
