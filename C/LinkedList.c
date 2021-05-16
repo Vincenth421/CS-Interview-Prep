@@ -2,53 +2,68 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 
-void add(struct LinkedList** head, int item)
+typedef struct Node{
+  int item;
+  struct Node* next;
+} node_t;
+
+void init_list(node_t** head) {
+
+}
+
+/* Adds item to end of list */
+void append(node_t** head, int item)
 {
-     struct LinkedList* node = (struct LinkedList*) malloc(sizeof(struct LinkedList*));
+  if(head == NULL) {
+    fprintf(stderr, "List is NULL\n");
+    exit(-1);
+  }
 
-     if(node == NULL)
-     {
-          fprintf(stderr, "Unable to allocate memory for new node\n");
-          exit(-1);
-     }
+  node_t* node = (node_t*) malloc(sizeof(node_t));
 
-     node->item = item;
-     node->next = NULL;
+  if(node == NULL)
+  {
+    fprintf(stderr, "Unable to allocate memory for new node\n");
+    exit(-1);
+  }
 
-     if(*head == NULL)
-     {
-          *head = node;
-     } else {
+  node->item = item;
+  node->next = NULL;
 
-        struct LinkedList *curr = *head;
-        while (curr->next != NULL)
-        {
-            curr = curr->next;
-        }
+  if (*head == NULL)
+  {
+    *head = node;
+  } else {
 
-        curr->next = node;
+    node_t *curr = *head;
+    while (curr->next != NULL)
+    {
+      curr = curr->next;
     }
+
+    curr->next = node;
+  }
 }
 
-void printList(struct LinkedList* head)
+void print_list(node_t* head)
 {
-     struct LinkedList* point = head;
-     while(point != NULL)
-     {
-          printf("%d ", point->item);
-          point = point->next;
-     }
+  node_t* point = head;
+  while(point != NULL)
+  {
+    printf("%d ", point->item);
+    point = point->next;
+  }
 
 }
 
-void freeList(struct LinkedList** head)
+void free_list(node_t** head)
 {
-     struct LinkedList* temp;
+  node_t* temp;
 
-     while(*head != NULL)
-     {
-          temp = *head;
-          *head = (*head)->next;
-          free(temp);
-     }
+  while(*head != NULL)
+  {
+    temp = *head;
+    *head = (*head)->next;
+    free(temp);
+  }
 }
