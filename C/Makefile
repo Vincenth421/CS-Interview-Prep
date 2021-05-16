@@ -1,6 +1,6 @@
 CC = gcc
 
-# Directory for executable and object files
+# Directory for object files
 ODIR = out
 
 # Header files
@@ -8,23 +8,28 @@ DEPS = LinkedList.h
 
 # All object files needed
 _OBJ = LinkedList.o Main.o
-# Convert *.o into $(ODIR)/*.o
+# Convert *.o into <output directory>/*.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # Other flags
 CFLAGS = -Wall
 
-default: Main
+all: directories Main
 
-# Compile file to run.
+# Make output directory if not exist
+directories:
+	mkdir -p $(ODIR)
+
+# Compile main file. $@ gets left side of colon, $^ gets right side.
 Main: $(OBJ)
-	$(CC) -o $(ODIR)/$@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS)
 
-# Compile object files
+# Compile object files into out directory. $< gets first arg on left side of colon.
+# In this case, $< is all of the C files. Use -c flag to only generate object files.
 $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-# Clear output directory
+# Clear output directory and executables (Windows only)
 .PHONY: clean
 clean:
-	rm $(ODIR)/*
+	rm $(ODIR)/* ./*.exe

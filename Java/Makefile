@@ -1,26 +1,20 @@
-JFLAGS = -g
 JC = javac
-.SUFFIXES: .java .class
-.java.class:
-	$(JC) $(JFLAGS) $*.java
+ODIR = out
+CLASSES = LinkedList.java Stack.java Queue.java BST.java MaxHeap.java
 
-CLASSES = \
-	LinkedList.java \
-	Stack.java \
-	Queue.java \
-	BST.java \
-	MaxHeap.java
+all: directories run
 
-default: run
+directories:
+	mkdir -p $(ODIR)
 
 run: main
-	java -cp ./out Main
+	java -cp $(ODIR) Main
 
 main: classes
-	$(JC) -d ./out -cp ./out Main.java
+	$(JC) -d $(ODIR) -cp $(ODIR) Main.java
 
 classes:
-	$(JC) -d ./out $(CLASSES)
+	$(JC) -d $(ODIR) $(CLASSES)
 
 clean:
-	$(RM) ./out/*.class
+	rm $(ODIR)/*
