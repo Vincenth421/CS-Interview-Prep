@@ -52,4 +52,8 @@ Planned algorithm implementations:
 * Common DP problems: Knapsack and Longest Increasing Subsequence.
 * Other good Leetcode interview questions.
 
+## Makefile
+Makefiles are included within each language subdirectory.
+Running ```make``` creates an `out/` directory, compiles all files within the directory, and runs the main executable.
+
 I use reference material from the book *Algorithms* by S. Dasgupta, C.H. Papadimitriou, and U.V. Vazirani; GeeksforGeeks.org; *Cracking the Coding Interview* by Gayle Laakmann McDowell; and Leetcode.com
