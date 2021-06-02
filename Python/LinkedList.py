@@ -22,8 +22,8 @@ class LinkedList:
             while curr.next != None:
                 curr = curr.next
 
-            curr.next = n
-            self.size = self.size + 1
+                curr.next = n
+                self.size = self.size + 1
 
     def printList(self):
         curr = self.head

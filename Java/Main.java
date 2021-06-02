@@ -1,204 +1,204 @@
 public class Main{
 
-     public static void main(String[] args)
-     {
-          llTest();
-          stackTest();
-          BSTTest();
-          heapTest();
-     }
+ public static void main(String[] args)
+ {
+      llTest();
+      stackTest();
+      BSTTest();
+      heapTest();
+ }
 
-     private static void heapTest()
-     {
-          MaxHeap mh = new MaxHeap();
+ private static void heapTest()
+ {
+      MaxHeap mh = new MaxHeap();
 
-          mh.insert(2);
+      mh.insert(2);
 
-          if(mh.getMax() != 2)
-          {
-               System.out.println("Heap getMax() fail");
-               return;
-          }
+      if(mh.getMax() != 2)
+      {
+           System.out.println("Heap getMax() fail");
+           return;
+      }
 
-          mh.insert(8);
+      mh.insert(8);
 
-          if(mh.getMax() != 8)
-          {
-               System.out.println("Heap getMax() fail");
-               return;
-          }
+      if(mh.getMax() != 8)
+      {
+           System.out.println("Heap getMax() fail");
+           return;
+      }
 
-          mh.changeKey(1, 9);
+      mh.changeKey(1, 9);
 
-          if(mh.getMax() != 9)
-          {
-               System.out.println("Heap changeKey() fail");
-               return;
-          }
+      if(mh.getMax() != 9)
+      {
+           System.out.println("Heap changeKey() fail");
+           return;
+      }
 
-          mh.insert(6);
-          mh.deleteMax();
+      mh.insert(6);
+      mh.deleteMax();
 
-          if(mh.getMax() != 8)
-          {
-               System.out.println("Heap deleteMax() fail");
-               return;
-          }
+      if(mh.getMax() != 8)
+      {
+           System.out.println("Heap deleteMax() fail");
+           return;
+      }
 
-          System.out.println("*** MAXHEAP TESTS PASSED ***");
-     }
+      System.out.println("*** MAXHEAP TESTS PASSED ***");
+ }
 
-     private static void BSTTest()
-     {
-          BST bst = new BST();
+ private static void BSTTest()
+ {
+      BST bst = new BST();
 
-          bst.add(5);
-          bst.add(8);
-          bst.add(6);
-          bst.add(3);
-          bst.add(0);
-          bst.add(2);
-          bst.add(9);
-          bst.add(-2);
+      bst.add(5);
+      bst.add(8);
+      bst.add(6);
+      bst.add(3);
+      bst.add(0);
+      bst.add(2);
+      bst.add(9);
+      bst.add(-2);
 
-          //contains test
-          if(bst.contains(-1))
-          {
-               System.out.println("BST contains() failed");
-               return;
-          }
+      //contains test
+      if(bst.contains(-1))
+      {
+           System.out.println("BST contains() failed");
+           return;
+      }
 
-          if(!bst.contains(3))
-          {
-               System.out.println("BST contains() failed");
-               return;
-          }
+      if(!bst.contains(3))
+      {
+           System.out.println("BST contains() failed");
+           return;
+      }
 
-          bst.delete(5);
+      bst.delete(5);
 
-          if(bst.contains(5))
-          {
-               System.out.println("BST delete() failed");
-               return;
-          }
+      if(bst.contains(5))
+      {
+           System.out.println("BST delete() failed");
+           return;
+      }
 
-          bst.delete(8);
+      bst.delete(8);
 
-          if(!bst.contains(9))
-          {
-               System.out.println("BST delete() failed");
-               return;
-          }
+      if(!bst.contains(9))
+      {
+           System.out.println("BST delete() failed");
+           return;
+      }
 
-          bst.delete(-2);
+      bst.delete(-2);
 
-          System.out.println("*** BST TESTS PASSED ***");
-     }
+      System.out.println("*** BST TESTS PASSED ***");
+ }
 
-     private static void stackTest()
-     {
-          Stack s = new Stack();
+ private static void stackTest()
+ {
+      Stack s = new Stack();
 
-          s.push(1);
-          s.push(2);
-          s.push(3);
+      s.push(1);
+      s.push(2);
+      s.push(3);
 
-          if(s.peek() != 3)
-          {
-               System.out.println("Stack peek() fail");
-               return;
-          }
+      if(s.peek() != 3)
+      {
+           System.out.println("Stack peek() fail");
+           return;
+      }
 
-          s.pop();
+      s.pop();
 
-          if(s.pop() != 2)
-          {
-               System.out.println("Stack pop() fail");
-          }
+      if(s.pop() != 2)
+      {
+           System.out.println("Stack pop() fail");
+      }
 
-          s.pop();
+      s.pop();
 
-          s.pop(); //Print Stack is empty.
+      s.pop(); //Print Stack is empty.
 
-          System.out.println("*** STACK TESTS PASSED ***");
+      System.out.println("*** STACK TESTS PASSED ***");
 
 
-     }
+ }
 
-     private static void llTest()
-     {
-          LinkedList ll = new LinkedList();
+ private static void llTest()
+ {
+      LinkedList ll = new LinkedList();
 
-          //Test deletes on empty list
-          ll.delete(1);
-          if(ll.deletePosition(0) != 0)
-          {
-               System.out.println("LL deletePosition() failed");
-               return;
-          }
+      //Test deletes on empty list
+      ll.delete(1);
+      if(ll.deletePosition(0) != 0)
+      {
+           System.out.println("LL deletePosition() failed");
+           return;
+      }
 
-          if(ll.size() != 0)
-          {
-               System.out.println("LL size() failed");
-               return;
-          }
+      if(ll.size() != 0)
+      {
+           System.out.println("LL size() failed");
+           return;
+      }
 
-          //Test get on empty List
-          if(ll.get(0) != 0)
-          {
-               System.out.println("LL empty get() failed");
-               return;
-          }
+      //Test get on empty List
+      if(ll.get(0) != 0)
+      {
+           System.out.println("LL empty get() failed");
+           return;
+      }
 
-          //Test adding
-          ll.add(0);
-          ll.add(1);
-          ll.add(2);
-          ll.add(3);
+      //Test adding
+      ll.append(0);
+      ll.append(1);
+      ll.append(2);
+      ll.append(3);
 
-          if(ll.size() != 4)
-          {
-               System.out.println("LL size() failed");
-               return;
-          }
+      if(ll.size() != 4)
+      {
+           System.out.println("LL size() failed");
+           return;
+      }
 
-          //Test get
-          if(ll.get(1) != 1)
-          {
-               System.out.println("LL get() failed");
-               return;
-          }
+      //Test get
+      if(ll.get(1) != 1)
+      {
+           System.out.println("LL get() failed");
+           return;
+      }
 
-          if(ll.get(-1) != 0)
-          {
-               System.out.println("LL get() failed");
-               return;
-          }
+      if(ll.get(-1) != 0)
+      {
+           System.out.println("LL get() failed");
+           return;
+      }
 
-          //Test deletes
-          //no element exists
-          if(ll.delete(4))
-          {
-               System.out.println("LL delete() failed");
-               return;
-          }
+      //Test deletes
+      //no element exists
+      if(ll.delete(4))
+      {
+           System.out.println("LL delete() failed");
+           return;
+      }
 
-          if(!ll.delete(3))
-          {
-               System.out.println("LL delete() failed");
-               return;
-          }
+      if(!ll.delete(3))
+      {
+           System.out.println("LL delete() failed");
+           return;
+      }
 
-          ll.delete(3);
+      ll.delete(3);
 
-          if(ll.deletePosition(0) != 0)
-          {
-               System.out.println("LL deletePos() failed");
-               return;
-          }
+      if(ll.deletePosition(0) != 0)
+      {
+           System.out.println("LL deletePos() failed");
+           return;
+      }
 
-          System.out.println("*** LL TESTS PASSED ***");
+      System.out.println("*** LL TESTS PASSED ***");
 
-     }
+ }
 
 }

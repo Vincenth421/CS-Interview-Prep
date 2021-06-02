@@ -3,6 +3,11 @@ public class LinkedList
      private Node head;
      private int size;
 
+     public LinkedList(int item) {
+       head = new Node(item);
+       size = 1;
+     }
+
      public LinkedList()
      {
           head = null;
@@ -10,9 +15,8 @@ public class LinkedList
      }
 
      //Append item to linked list
-     public void add(int item)
+     public void append(int item)
      {
-
           Node n = new Node(item);
 
           //if linked list is empty, make initialize the head

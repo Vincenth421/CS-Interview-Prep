@@ -14,7 +14,11 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 # Other flags
 CFLAGS = -Wall
 
-all: directories Main
+default: directories run
+
+# Execute main
+run: Main
+	./Main
 
 # Make output directory if not exist
 directories:
