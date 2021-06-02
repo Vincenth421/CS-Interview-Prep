@@ -11,7 +11,7 @@ public class Queue{
 
      public void enqueue(int i)
      {
-          queue.add(i);
+          queue.append(i);
      }
 
      public int dequeue(){
