@@ -4,11 +4,10 @@
 typedef struct Node node_t;
 
 /* Linked list operations */
-void init_list(node_t**, int);
 void insert(node_t**, int);
-void append(node_t**, int);
 void delete(node_t**);
 void free_list(node_t**);
 
-/* Utility function */
+/* Utility functions */
 void print_list(node_t*);
+bool list_equals(node_t*, node_t*);
