@@ -11,16 +11,21 @@ Must know Data Structures:
 * Queue
 * Stack
 * Tree
-* Graph
-* Dictionary / Map
+* Dictionary / HashMap
+
+Other Useful Data Structures:
 * Trie
+* Graph
+* Set
+* Priority Queue
 
 Must know algorithms:
 * Mergesort
 * Quicksort
 * DFS
 * BFS
-* Tree traversals
+* Pre-order, in-order, post-order tree traversals
+* Binary Search
 
 Current Data Structures Implemented:  
 * Java:
