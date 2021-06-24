@@ -1,5 +1,5 @@
 /* Linked list functions */
-
+#include <stdbool.h>
 /* Linked list node type definition */
 typedef struct Node node_t;
 
